@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Window</title>
+    <style>
+        button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Window Application</h2>
+    <button id="imagesBtn">Images</button>
+    <button id="tablesBtn">Tables</button>
+    <button id="listsBtn">Lists</button>
+    <button id="closeWindowsBtn">Close Windows</button>
+
+    <script>
+        let childWindows = [];
+
+        // Open the Images page
+        document.getElementById('imagesBtn').addEventListener('click', function() {
+            const imageWindow = window.open('images.html', '', 'width=600,height=400');
+            childWindows.push(imageWindow);
+        });
+
+        // Open the Tables page
+        document.getElementById('tablesBtn').addEventListener('click', function() {
+            const tableWindow = window.open('tables.html', '', 'width=600,height=400');
+            childWindows.push(tableWindow);
+        });
+
+        // Open the Lists page
+        document.getElementById('listsBtn').addEventListener('click', function() {
+            const listWindow = window.open('lists.html', '', 'width=600,height=400');
+            childWindows.push(listWindow);
+        });
+
+        // Close all child windows and the parent window
+        document.getElementById('closeWindowsBtn').addEventListener('click', function() {
+            // Close all child windows
+            childWindows.forEach(win => win.close());
+            // Close parent window
+            window.close();
+        });
+    </script>
+</body>
+</html>
